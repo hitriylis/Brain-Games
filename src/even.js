@@ -5,11 +5,9 @@ console.log(`Hello, ${name}!`);
 
 const generateRandom = () => Math.round(Math.random() * 100);
 
-const isEven = (number) => number % 2 === 0;
-
 const getCorrectAnswer = (number) => {
   let trueAnswer;
-  if (isEven(number)) {
+  if (number % 2 === 0) {
     trueAnswer = 'yes';
   } else {
     trueAnswer = 'no';
@@ -21,14 +19,14 @@ const brainEvenGame = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < 3; i += 1) {
     const randomNumber = generateRandom();
-    const correntAnswer = getCorrectAnswer(randomNumber);
+    const correctAnswer = getCorrectAnswer(randomNumber);
     const userAnswer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
-    if (correntAnswer === userAnswer) {
+    if (userAnswer === correctAnswer) {
       if (i < 2) {
         console.log('Correct!');
       }
     } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correntAnswer}'\nLet's try again, ${name}!`);
+      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${name}!`);
     }
   }
   return (`Congratulations, ${name}!`);
