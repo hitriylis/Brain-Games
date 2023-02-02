@@ -29,7 +29,7 @@ const brainEvenGame = () => {
       return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${name}!`);
     }
   }
-  return (`Congratulations, ${name}!`);
+  return (`Correct!\nCongratulations, ${name}!`);
 };
 
 export default brainEvenGame;
