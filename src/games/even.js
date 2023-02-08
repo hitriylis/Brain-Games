@@ -1,9 +1,8 @@
 import readlineSync from 'readline-sync';
-import name from './cli.js';
+import name from '../cli.js';
+import generateRandom from '../index.js';
 
-console.log(`Hello, ${name}!`);
-
-const generateRandom = () => Math.round(Math.random() * 100);
+const operationsCount = 3;
 
 const getCorrectAnswer = (number) => {
   let trueAnswer;
@@ -17,12 +16,12 @@ const getCorrectAnswer = (number) => {
 
 const brainEvenGame = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < operationsCount; i += 1) {
     const randomNumber = generateRandom();
     const correctAnswer = getCorrectAnswer(randomNumber);
     const userAnswer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
     if (userAnswer === correctAnswer) {
-      if (i < 2) {
+      if (i < (operationsCount - 1)) {
         console.log('Correct!');
       }
     } else {

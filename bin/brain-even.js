@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import brainEvenGame from '../src/even.js';
+import brainEvenGame from '../src/games/even.js';
 
 console.log(brainEvenGame());
