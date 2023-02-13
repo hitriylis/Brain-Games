@@ -2,24 +2,20 @@ import readlineSync from 'readline-sync';
 import name from '../cli.js';
 import generateRandom from '../index.js';
 
+const numbersCount = 99;
 const operationsCount = 3;
 const operators = ['+', '-', '*'];
 
-const getRandomIndex = () => {
-  const getRandomInt = (max) => Math.floor(Math.random() * max);
-  return getRandomInt(operationsCount);
-};
-
 const getRandomOperator = () => {
-  const randomOperator = operators[getRandomIndex(operationsCount)];
+  const randomOperator = operators[generateRandom(operationsCount)];
   return randomOperator;
 };
 
 const brainCalcGame = () => {
   console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
-    const randomNumber1 = generateRandom();
-    const randomNumber2 = generateRandom();
+    const randomNumber1 = generateRandom(numbersCount);
+    const randomNumber2 = generateRandom(numbersCount);
     const randomOperator = getRandomOperator();
     let result = 0;
 
@@ -43,7 +39,7 @@ const brainCalcGame = () => {
         console.log('Correct!');
       }
     } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${name}!`);
+      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
     }
   }
   return (`Correct!\nCongratulations, ${name}!`);

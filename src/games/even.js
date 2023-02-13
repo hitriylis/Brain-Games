@@ -25,7 +25,7 @@ const brainEvenGame = () => {
         console.log('Correct!');
       }
     } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${name}!`);
+      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
     }
   }
   return (`Correct!\nCongratulations, ${name}!`);

@@ -1,7 +1,5 @@
-const numbersCount = 99;
-
-const generateRandom = () => {
+const generateRandom = (number) => {
   const getRandomInt = (max) => Math.floor(Math.random() * max);
-  return getRandomInt(numbersCount);
+  return getRandomInt(number);
 };
 export default generateRandom;
