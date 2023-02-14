@@ -2,24 +2,40 @@ import readlineSync from 'readline-sync';
 import name from '../cli.js';
 import getRandom from '../index.js';
 
+const numbersCount = 99;
 const operationsCount = 3;
 
-const getCorrectAnswer = (number) => {
-  let trueAnswer;
-  if (number % 2 === 0) {
-    trueAnswer = 'yes';
-  } else {
-    trueAnswer = 'no';
+const isPrime = (number) => {
+  if (number < 2) {
+    return 'no';
   }
-  return trueAnswer;
+  let divider = 2;
+  while (divider <= number / 2) {
+    if (number % divider === 0) {
+      return 'no';
+    }
+    divider += 1;
+  }
+  return 'yes';
+};
+
+const getCorrectAnswer = (correct, answer) => {
+  let trueAnswer;
+  if (correct === answer) {
+    trueAnswer = answer;
+  } else {
+    trueAnswer = correct;
+  }
+  return trueAnswer.toString();
 };
 
 const brainEvenGame = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 0; i < operationsCount; i += 1) {
-    const randomNumber = getRandom();
-    const correctAnswer = getCorrectAnswer(randomNumber);
+    const randomNumber = getRandom(numbersCount);
+    const isPrimeRandomNumber = isPrime(randomNumber);
     const userAnswer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
+    const correctAnswer = getCorrectAnswer(isPrimeRandomNumber, userAnswer);
     if (userAnswer === correctAnswer) {
       if (i < (operationsCount - 1)) {
         console.log('Correct!');

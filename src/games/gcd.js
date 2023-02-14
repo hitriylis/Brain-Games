@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import name from '../cli.js';
-import generateRandom from '../index.js';
+import getRandom from '../index.js';
 
 const operationsCount = 3;
 
@@ -31,8 +31,8 @@ const getCorrectAnswer = (number1, number2) => {
 const brainGCDGame = () => {
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < operationsCount; i += 1) {
-    const randomNumber1 = generateRandom();
-    const randomNumber2 = generateRandom();
+    const randomNumber1 = getRandom();
+    const randomNumber2 = getRandom();
     const correctAnswer = getCorrectAnswer(randomNumber1, randomNumber2);
     const userAnswer = readlineSync.question(`Question: ${randomNumber1} ${randomNumber2}\nYour answer: `);
     if (userAnswer === correctAnswer) {

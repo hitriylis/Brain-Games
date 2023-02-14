@@ -1,21 +1,21 @@
 import readlineSync from 'readline-sync';
 import name from '../cli.js';
-import generateRandom from '../index.js';
+import getRandom from '../index.js';
 
 const numbersCount = 99;
 const operationsCount = 3;
 const operators = ['+', '-', '*'];
 
 const getRandomOperator = () => {
-  const randomOperator = operators[generateRandom(operationsCount)];
+  const randomOperator = operators[getRandom(operationsCount)];
   return randomOperator;
 };
 
 const brainCalcGame = () => {
   console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
-    const randomNumber1 = generateRandom(numbersCount);
-    const randomNumber2 = generateRandom(numbersCount);
+    const randomNumber1 = getRandom(numbersCount);
+    const randomNumber2 = getRandom(numbersCount);
     const randomOperator = getRandomOperator();
     let result = 0;
 

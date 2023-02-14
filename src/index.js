@@ -1,5 +1,6 @@
-const generateRandom = (number) => {
+const getRandom = (number) => {
   const getRandomInt = (max) => Math.floor(Math.random() * max);
   return getRandomInt(number);
 };
-export default generateRandom;
+
+export default getRandom;
