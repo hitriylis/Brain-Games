@@ -1,13 +1,4 @@
-import readlineSync from 'readline-sync';
-import name from '../cli.js';
-import getRandom from '../index.js';
-
-const numbersCount = 99;
-const minProgLength = 5;
-const maxProgLength = 10;
-const minProgStep = 1;
-const maxProgStep = 10;
-const operationsCount = 3;
+import { getRandom, runEngine } from '../index.js';
 
 const getRandomIntInclusive = (from, to) => {
   const min = Math.ceil(from);
@@ -25,35 +16,34 @@ const getCorrectAnswer = (correct, answer) => {
   return trueAnswer.toString();
 };
 
-const brainProgGame = () => {
-  console.log('What number is missing in the progression?');
-  for (let i = 0; i < operationsCount; i += 1) {
-    const result = [];
-    const progStep = getRandomIntInclusive(minProgStep, maxProgStep);
-    const progLength = getRandomIntInclusive(minProgLength, maxProgLength);
-    const firstNumber = getRandom(numbersCount);
-    const lastNumber = firstNumber + ((progLength - 1) * progStep);
+const makeRound = () => {
+  const numbersCount = 100;
+  const minProgLength = 5;
+  const maxProgLength = 10;
+  const minProgStep = 1;
+  const maxProgStep = 10;
+  const result = [];
+  const progStep = getRandomIntInclusive(minProgStep, maxProgStep);
+  const progLength = getRandomIntInclusive(minProgLength, maxProgLength);
+  const firstNumber = getRandom(numbersCount);
+  const lastNumber = firstNumber + ((progLength - 1) * progStep);
 
-    for (let j = firstNumber; j <= lastNumber; j += progStep) {
-      result.push(j);
-    }
-
-    const deletedIndex = getRandom(progLength);
-    const deletedNumber = result.splice(deletedIndex, 1, '..');
-    const progToString = result.join(' ');
-
-    const userAnswer = readlineSync.question(`Question: ${progToString}\nYour answer: `);
-    const correctAnswer = getCorrectAnswer(deletedNumber, userAnswer);
-
-    if (userAnswer === correctAnswer) {
-      if (i < (operationsCount - 1)) {
-        console.log('Correct!');
-      }
-    } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-    }
+  for (let j = firstNumber; j <= lastNumber; j += progStep) {
+    result.push(j);
   }
-  return (`Correct!\nCongratulations, ${name}!`);
+
+  const deletedIndex = getRandom(progLength);
+  const deletedNumber = result.splice(deletedIndex, 1, '..');
+  const progToString = result.join(' ');
+
+  const userAnswer = `Question: ${progToString}\nYour answer: `;
+  const correctAnswer = getCorrectAnswer(deletedNumber, userAnswer);
+  return [userAnswer, correctAnswer];
+};
+
+const brainProgGame = () => {
+  const rules = 'What number is missing in the progression?';
+  runEngine(rules, makeRound);
 };
 
 export default brainProgGame;

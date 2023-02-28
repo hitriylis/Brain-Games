@@ -1,48 +1,40 @@
-import readlineSync from 'readline-sync';
-import name from '../cli.js';
-import getRandom from '../index.js';
-
-const numbersCount = 99;
-const operationsCount = 3;
-const operators = ['+', '-', '*'];
+import { getRandom, runEngine } from '../index.js';
 
 const getRandomOperator = () => {
-  const randomOperator = operators[getRandom(operationsCount)];
+  const roundsCount = 3;
+  const operators = ['+', '-', '*'];
+  const randomOperator = operators[getRandom(roundsCount)];
   return randomOperator;
 };
 
-const brainCalcGame = () => {
-  console.log('What is the result of the expression?');
-  for (let i = 0; i < 3; i += 1) {
-    const randomNumber1 = getRandom(numbersCount);
-    const randomNumber2 = getRandom(numbersCount);
-    const randomOperator = getRandomOperator();
+const makeRound = () => {
+  const numbersCount = 100;
+  const randomNumber1 = getRandom(numbersCount);
+  const randomNumber2 = getRandom(numbersCount);
+  const randomOperator = getRandomOperator();
+
+  const getCorrectAnswer = (number1, number2) => {
     let result = 0;
-
-    const getCorrectAnswer = (number1, number2) => {
-      if (randomOperator === '+') {
-        result = number1 + number2;
-      }
-      if (randomOperator === '-') {
-        result = number1 - number2;
-      }
-      if (randomOperator === '*') {
-        result = number1 * number2;
-      }
-      return result.toString();
-    };
-
-    const correctAnswer = getCorrectAnswer(randomNumber1, randomNumber2);
-    const userAnswer = readlineSync.question(`Question: ${randomNumber1} ${randomOperator} ${randomNumber2}\nYour answer: `);
-    if (userAnswer === correctAnswer) {
-      if (i < 2) {
-        console.log('Correct!');
-      }
-    } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
+    if (randomOperator === '+') {
+      result = number1 + number2;
     }
-  }
-  return (`Correct!\nCongratulations, ${name}!`);
+    if (randomOperator === '-') {
+      result = number1 - number2;
+    }
+    if (randomOperator === '*') {
+      result = number1 * number2;
+    }
+    return result.toString();
+  };
+
+  const userAnswer = `Question: ${randomNumber1} ${randomOperator} ${randomNumber2}\nYour answer: `;
+  const correctAnswer = getCorrectAnswer(randomNumber1, randomNumber2);
+  return [userAnswer, correctAnswer];
+};
+
+const brainCalcGame = () => {
+  const rules = 'What is the result of the expression?';
+  runEngine(rules, makeRound);
 };
 
 export default brainCalcGame;

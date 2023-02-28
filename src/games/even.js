@@ -1,34 +1,23 @@
-import readlineSync from 'readline-sync';
-import name from '../cli.js';
-import getRandom from '../index.js';
-
-const operationsCount = 3;
+import { getRandom, runEngine } from '../index.js';
 
 const getCorrectAnswer = (number) => {
-  let trueAnswer;
   if (number % 2 === 0) {
-    trueAnswer = 'yes';
-  } else {
-    trueAnswer = 'no';
+    return 'yes';
   }
-  return trueAnswer;
+  return 'no';
+};
+
+const makeRound = () => {
+  const numbersCount = 100;
+  const randomNumber = getRandom(numbersCount);
+  const question = `Question: ${randomNumber}\nYour answer: `;
+  const correctAnswer = getCorrectAnswer(randomNumber);
+  return [question, correctAnswer];
 };
 
 const brainEvenGame = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < operationsCount; i += 1) {
-    const randomNumber = getRandom();
-    const correctAnswer = getCorrectAnswer(randomNumber);
-    const userAnswer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
-    if (userAnswer === correctAnswer) {
-      if (i < (operationsCount - 1)) {
-        console.log('Correct!');
-      }
-    } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-    }
-  }
-  return (`Correct!\nCongratulations, ${name}!`);
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  runEngine(rules, makeRound);
 };
 
 export default brainEvenGame;

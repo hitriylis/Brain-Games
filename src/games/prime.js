@@ -1,14 +1,10 @@
-import readlineSync from 'readline-sync';
-import name from '../cli.js';
-import getRandom from '../index.js';
+import { getRandom, runEngine } from '../index.js';
 
-const numbersCount = 99;
-const operationsCount = 3;
-
-const isPrime = (number) => {
+const getCorrectAnswer = (number) => {
   if (number < 2) {
     return 'no';
   }
+
   let divider = 2;
   while (divider <= number / 2) {
     if (number % divider === 0) {
@@ -19,32 +15,17 @@ const isPrime = (number) => {
   return 'yes';
 };
 
-const getCorrectAnswer = (correct, answer) => {
-  let trueAnswer;
-  if (correct === answer) {
-    trueAnswer = answer;
-  } else {
-    trueAnswer = correct;
-  }
-  return trueAnswer.toString();
+const makeRound = () => {
+  const numbersCount = 99;
+  const randomNumber = getRandom(numbersCount);
+  const userAnswer = `Question: ${randomNumber}\nYour answer: `;
+  const correctAnswer = getCorrectAnswer(randomNumber);
+  return [userAnswer, correctAnswer];
 };
 
 const brainEvenGame = () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 0; i < operationsCount; i += 1) {
-    const randomNumber = getRandom(numbersCount);
-    const isPrimeRandomNumber = isPrime(randomNumber);
-    const userAnswer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
-    const correctAnswer = getCorrectAnswer(isPrimeRandomNumber, userAnswer);
-    if (userAnswer === correctAnswer) {
-      if (i < (operationsCount - 1)) {
-        console.log('Correct!');
-      }
-    } else {
-      return (`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-    }
-  }
-  return (`Correct!\nCongratulations, ${name}!`);
+  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  runEngine(rules, makeRound);
 };
 
 export default brainEvenGame;
