@@ -9,6 +9,7 @@ export const getRandom = (number) => {
 };
 
 export const runEngine = (rules, makeRound) => {
+  console.log(`Hello, ${name}!`);
   console.log(rules);
 
   for (let i = 0; i < roundsCount; i += 1) {
