@@ -16,7 +16,7 @@ const getCorrectAnswer = (number) => {
 };
 
 const makeRound = () => {
-  const numbersCount = 99;
+  const numbersCount = 100;
   const randomNumber = getRandom(numbersCount);
   const userAnswer = `Question: ${randomNumber}\nYour answer: `;
   const correctAnswer = getCorrectAnswer(randomNumber);
