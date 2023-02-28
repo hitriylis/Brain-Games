@@ -18,30 +18,30 @@ npm link
 brain-games
 ```
 
-## Games "Calculator" start
+## Game "Calculator" start
 
 ```bash
 brain-calc
 ```
 
-## Games "Progression" start
+## Game "Progression" start
 
 ```bash
 brain-progression
 ```
-## Games "Is even" start
+## Game "Is even" start
 
 ```bash
 brain-even
 ```
 
-## Games "Greatest common divisor" start
+## Game "Greatest common divisor" start
 
 ```bash
 brain-gcd
 ```
 
-## Games "Is prime" start
+## Game "Is prime" start
 
 ```bash
 brain-prime
