@@ -21,7 +21,7 @@ const getCorrectAnswer = (number1, number2) => {
       }
     }
   }
-  return (result[result.length - 1]).toString();
+  return result[result.length - 1];
 };
 
 const makeRound = () => {
@@ -29,7 +29,7 @@ const makeRound = () => {
   const randomNumber1 = getRandom(numbersCount);
   const randomNumber2 = getRandom(numbersCount);
   const userAnswer = `Question: ${randomNumber1} ${randomNumber2}\nYour answer: `;
-  const correctAnswer = getCorrectAnswer(randomNumber1, randomNumber2);
+  const correctAnswer = getCorrectAnswer(randomNumber1, randomNumber2).toString();
   return [userAnswer, correctAnswer];
 };
 
