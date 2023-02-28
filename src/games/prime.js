@@ -23,9 +23,9 @@ const makeRound = () => {
   return [userAnswer, correctAnswer];
 };
 
-const brainEvenGame = () => {
+const brainPrimeGame = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   runEngine(rules, makeRound);
 };
 
-export default brainEvenGame;
+export default brainPrimeGame;
