@@ -11,7 +11,7 @@ const makeRound = () => {
 };
 
 const brainEvenGame = () => {
-  const rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
   runEngine(rules, makeRound);
 };
 

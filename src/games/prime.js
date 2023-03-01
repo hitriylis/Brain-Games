@@ -23,7 +23,7 @@ const makeRound = () => {
 };
 
 const brainPrimeGame = () => {
-  const rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   runEngine(rules, makeRound);
 };
 
