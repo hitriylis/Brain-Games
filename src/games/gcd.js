@@ -1,4 +1,5 @@
-import { getRandom, runEngine } from '../index.js';
+import getRandomInRange from '../utils.js';
+import runEngine from '../index.js';
 
 const getDeviders = (number) => {
   const result = [];
@@ -10,7 +11,7 @@ const getDeviders = (number) => {
   return result;
 };
 
-const getCorrectAnswer = (number1, number2) => {
+const getCommonDevider = (number1, number2) => {
   const deviders1 = getDeviders(number1);
   const deviders2 = getDeviders(number2);
   const result = [];
@@ -25,11 +26,10 @@ const getCorrectAnswer = (number1, number2) => {
 };
 
 const makeRound = () => {
-  const numbersCount = 100;
-  const randomNumber1 = getRandom(numbersCount);
-  const randomNumber2 = getRandom(numbersCount);
+  const randomNumber1 = getRandomInRange(0, 100);
+  const randomNumber2 = getRandomInRange(0, 100);
   const userAnswer = `Question: ${randomNumber1} ${randomNumber2}\nYour answer: `;
-  const correctAnswer = getCorrectAnswer(randomNumber1, randomNumber2).toString();
+  const correctAnswer = getCommonDevider(randomNumber1, randomNumber2).toString();
   return [userAnswer, correctAnswer];
 };
 
