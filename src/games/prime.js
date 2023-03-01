@@ -1,10 +1,10 @@
-import { getRandom, runEngine } from '../index.js';
+import getRandomInRange from '../utils.js';
+import runEngine from '../index.js';
 
-const getCorrectAnswer = (number) => {
+const isPrime = (number) => {
   if (number < 2) {
     return 'no';
   }
-
   let divider = 2;
   while (divider <= number / 2) {
     if (number % divider === 0) {
@@ -16,15 +16,14 @@ const getCorrectAnswer = (number) => {
 };
 
 const makeRound = () => {
-  const numbersCount = 100;
-  const randomNumber = getRandom(numbersCount);
-  const userAnswer = `Question: ${randomNumber}\nYour answer: `;
-  const correctAnswer = getCorrectAnswer(randomNumber);
-  return [userAnswer, correctAnswer];
+  const randomNumber = getRandomInRange(0, 100);
+  const question = `Question: ${randomNumber}\nYour answer: `;
+  const correctAnswer = isPrime(randomNumber);
+  return [question, correctAnswer];
 };
 
 const brainPrimeGame = () => {
-  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
   runEngine(rules, makeRound);
 };
 

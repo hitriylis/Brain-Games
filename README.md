@@ -1,10 +1,12 @@
-«Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново. Игры:
+"Brain Games" - is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. Games:
 
-1. Calculator - Калькулятор (арифметические выражения, которые необходимо вычислить).
-2. Progression - Прогрессия (поиск пропущенных чисел в последовательности чисел).
-3. Is even - Определение четного числа.
-4. Greatest common divisor - Определение наибольшего общего делителя.
-5. Is prime - Определение простого числа.
+1. Calculator - arithmetic expressions to be calculated
+2. Progression - search for missing numbers in a sequence of numbers
+3. Is even - definition of an even number
+4. Greatest common divisor - finding the greatest common divisor
+5. Is prime - definition of a prime number.
+
+You need to clone the repository first. After that you need to install the dependencies.
 
 ## Setup
 
