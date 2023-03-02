@@ -23,14 +23,14 @@ const makeRound = () => {
   const randomNumber1 = getRandomInRange(0, 100);
   const randomNumber2 = getRandomInRange(0, 100);
   const randomOperator = getRandomOperator();
-  const question = `Question: ${randomNumber1} ${randomOperator} ${randomNumber2}\nYour answer: `;
+  const question = `Question: ${randomNumber1} ${randomOperator} ${randomNumber2}`;
   const correctAnswer = calculateResult(randomNumber1, randomNumber2, randomOperator).toString();
   return [question, correctAnswer];
 };
 
-const brainCalcGame = () => {
+const runBrainCalcGame = () => {
   const rules = 'What is the result of the expression?';
   runEngine(rules, makeRound);
 };
 
-export default brainCalcGame;
+export default runBrainCalcGame;

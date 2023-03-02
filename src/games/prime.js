@@ -3,28 +3,27 @@ import runEngine from '../index.js';
 
 const isPrime = (number) => {
   if (number < 2) {
-    return 'no';
+    return false;
   }
-  let divider = 2;
-  while (divider <= number / 2) {
-    if (number % divider === 0) {
-      return 'no';
+
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
+    if (number % i === 0) {
+      return false;
     }
-    divider += 1;
   }
-  return 'yes';
+  return true;
 };
 
 const makeRound = () => {
   const randomNumber = getRandomInRange(0, 100);
-  const question = `Question: ${randomNumber}\nYour answer: `;
-  const correctAnswer = isPrime(randomNumber);
+  const question = `Question: ${randomNumber}`;
+  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
-const brainPrimeGame = () => {
+const runBrainPrimeGame = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   runEngine(rules, makeRound);
 };
 
-export default brainPrimeGame;
+export default runBrainPrimeGame;

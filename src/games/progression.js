@@ -15,18 +15,18 @@ const makeRound = () => {
   const progressionLength = getRandomInRange(5, 10);
   const progression = generateProgressoin(progressionStart, progressionStep, progressionLength);
 
-  const deletedIndex = getRandomInRange(0, progressionLength - 1);
-  const deletedNumber = progression.splice(deletedIndex, 1, '..');
-  const progToString = progression.join(' ');
+  const hiddenIndex = getRandomInRange(0, progressionLength - 1);
+  const hiddenNumber = progression.splice(hiddenIndex, 1, '..');
+  const progressionToString = progression.join(' ');
 
-  const question = `Question: ${progToString}\nYour answer: `;
-  const correctAnswer = deletedNumber.toString();
+  const question = `Question: ${progressionToString}`;
+  const correctAnswer = hiddenNumber.toString();
   return [question, correctAnswer];
 };
 
-const brainProgGame = () => {
+const runBrainProgGame = () => {
   const rules = 'What number is missing in the progression?';
   runEngine(rules, makeRound);
 };
 
-export default brainProgGame;
+export default runBrainProgGame;

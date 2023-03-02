@@ -1,41 +1,24 @@
 import getRandomInRange from '../utils.js';
 import runEngine from '../index.js';
 
-const getDeviders = (number) => {
-  const result = [];
-  for (let i = 1; i <= number; i += 1) {
-    if (number % i === 0) {
-      result.push(i);
-    }
-  }
-  return result;
-};
-
 const getCommonDevider = (number1, number2) => {
-  const deviders1 = getDeviders(number1);
-  const deviders2 = getDeviders(number2);
-  const result = [];
-  for (let i = 0; i < deviders1.length; i += 1) {
-    for (let j = 0; j < deviders2.length; j += 1) {
-      if (deviders1[i] === deviders2[j]) {
-        result.push(deviders1[i]);
-      }
-    }
+  if (number1 === 0) {
+    return number2;
   }
-  return result[result.length - 1];
+  return getCommonDevider(number2 % number1, number1);
 };
 
 const makeRound = () => {
   const randomNumber1 = getRandomInRange(0, 100);
   const randomNumber2 = getRandomInRange(0, 100);
-  const userAnswer = `Question: ${randomNumber1} ${randomNumber2}\nYour answer: `;
+  const userAnswer = `Question: ${randomNumber1} ${randomNumber2}`;
   const correctAnswer = getCommonDevider(randomNumber1, randomNumber2).toString();
   return [userAnswer, correctAnswer];
 };
 
-const brainGCDGame = () => {
+const runBrainGCDGame = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
   runEngine(rules, makeRound);
 };
 
-export default brainGCDGame;
+export default runBrainGCDGame;
