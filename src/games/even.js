@@ -5,8 +5,9 @@ const isEven = (number) => number % 2 === 0;
 
 const makeRound = () => {
   const randomNumber = getRandomInRange(0, 100);
+  const isEvenOrNot = () => (isEven(randomNumber) ? 'yes' : 'no');
   const question = `Question: ${randomNumber}`;
-  const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
+  const correctAnswer = isEvenOrNot(randomNumber);
   return [question, correctAnswer];
 };
 
