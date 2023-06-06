@@ -1,3 +1,6 @@
+[![Actions Status](https://github.com/hitriylis/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/hitriylis/frontend-project-44/actions)
+<a href="https://codeclimate.com/github/hitriylis/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/320f96eaddfa762cf289/maintainability" /></a>
+
 ## Description
 
 "Brain Games" - is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. Games:
@@ -51,10 +54,7 @@ brain-gcd
 brain-prime
 ```
 
-### Hexlet tests and linter status:
-
-[![Actions Status](https://github.com/hitriylis/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/hitriylis/frontend-project-44/actions)
-<a href="https://codeclimate.com/github/hitriylis/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/320f96eaddfa762cf289/maintainability" /></a>
+### Demonstration:
 
 <p>1. Calculator</p>
 <a href="https://asciinema.org/a/558181"><img src="https://asciinema.org/a/558181.png" width="400"/></a>
