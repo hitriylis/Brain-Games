@@ -20,7 +20,7 @@ You need to clone the repository first. After that you need to install the depen
 git clone git@github.com:hitriylis/Brain-Games.git
 ```
 ```bash
-install
+make install
 ```
 
 ## Games start
