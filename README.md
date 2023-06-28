@@ -14,10 +14,13 @@
 
 You need to clone the repository first. After that you need to install the dependencies.
 
-## Setup
+## Install
 
 ```bash
-npm link
+git clone git@github.com:hitriylis/Brain-Games.git
+```
+```bash
+install
 ```
 
 ## Games start
