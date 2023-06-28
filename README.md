@@ -22,6 +22,12 @@ git clone git@github.com:hitriylis/Brain-Games.git
 ```bash
 make install
 ```
+```bash
+npm install readfilesync
+```
+```bash
+npm link
+```
 
 ## Games start
 
