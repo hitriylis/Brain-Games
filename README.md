@@ -20,10 +20,10 @@ You need to clone the repository first. After that you need to install the depen
 git clone git@github.com:hitriylis/Brain-Games.git
 ```
 ```bash
-make install
+cd Brain-Games
 ```
 ```bash
-npm install readfilesync
+make install
 ```
 ```bash
 npm link
