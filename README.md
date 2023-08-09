@@ -17,12 +17,6 @@ You need to clone the repository first. After that you need to install the depen
 ## Install
 
 ```bash
-git clone git@github.com:hitriylis/Brain-Games.git
-```
-```bash
-cd Brain-Games
-```
-```bash
 make install
 ```
 ```bash
