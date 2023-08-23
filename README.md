@@ -12,10 +12,11 @@
 4. Greatest common divisor - finding the greatest common divisor
 5. Is prime - definition of a prime number.
 
-You need to clone the repository first. After that you need to install the dependencies.
-
 ## Install
 
+```bash
+git clone git@github.com:hitriylis/Brain-Games
+```
 ```bash
 make install
 ```
