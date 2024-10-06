@@ -1,6 +1,5 @@
 # Brain Games
-[![Actions Status](https://github.com/hitriylis/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/hitriylis/frontend-project-44/actions)
-<a href="https://codeclimate.com/github/hitriylis/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/320f96eaddfa762cf289/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/f4be2e8f37a47816256f/maintainability)](https://codeclimate.com/github/hitriylis/Brain-Games/maintainability)
 
 ## Description
 
